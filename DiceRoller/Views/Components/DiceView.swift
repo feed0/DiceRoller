@@ -14,14 +14,21 @@ struct DiceView: View {
     var numberOfPips = 1
     
     private let maxSideSize: CGFloat = 150
+    private let rangeOfPips: ClosedRange<Int> = 1...6
     
     // MARK: - Body
     
     public var body: some View {
-        Image(systemName: "die.face.\(numberOfPips)")
-            .resizable()
-            .frame(maxWidth: maxSideSize,
-                   maxHeight: maxSideSize)
+        VStack {
+            Image(systemName: "die.face.\(numberOfPips)")
+                .resizable()
+                .frame(maxWidth: maxSideSize,
+                       maxHeight: maxSideSize)
+            
+            Button("Roll") {
+                numberOfPips = Int.random(in: rangeOfPips)
+            }
+        }
     }
 }
 
