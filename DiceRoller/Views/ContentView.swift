@@ -18,7 +18,12 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 16) {
             title
+            
+            Spacer()
+
             diceHStack
+            
+            Spacer()
             
             HStack {
                 removeDieButton
@@ -63,7 +68,7 @@ struct ContentView: View {
                 diceCount += 1
             }
         }
-        .disabled(diceCount == 3)
+        .disabled(diceCount == 5)
     }
 }
 

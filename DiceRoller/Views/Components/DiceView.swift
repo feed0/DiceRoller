@@ -33,6 +33,7 @@ struct DiceView: View {
             .resizable()
             .frame(maxWidth: maxSideSize,
                    maxHeight: maxSideSize)
+            .aspectRatio(1, contentMode: .fit)
     }
     
     private var rollTheDieButton: some View {
