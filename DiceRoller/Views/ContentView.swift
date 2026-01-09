@@ -18,17 +18,10 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 16) {
             title
-            
             Spacer()
-
             diceHStack
-            
             Spacer()
-            
-            HStack {
-                removeDieButton
-                addDieButton
-            }
+            buttonsHStack
         }
         .padding()
     }
@@ -53,8 +46,17 @@ struct ContentView: View {
 
     // MARK: Buttons
     
+    private var buttonsHStack: some View {
+        HStack {
+            removeDieButton
+            addDieButton
+        }
+        .labelStyle(.iconOnly)
+        .font(.title)
+    }
+    
     private var removeDieButton: some View {
-        Button("Remove Die") {
+        Button("Remove Die", systemImage: "minus.circle.fill") {
             withAnimation {
                 diceCount -= 1
             }
@@ -63,7 +65,7 @@ struct ContentView: View {
     }
     
     private var addDieButton: some View {
-        Button("Add Die") {
+        Button("Add Die", systemImage: "plus.circle.fill") {
             withAnimation {
                 diceCount += 1
             }
