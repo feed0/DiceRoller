@@ -24,6 +24,10 @@ struct ContentView: View {
             buttonsHStack
         }
         .padding()
+        .frame(maxWidth: .infinity,
+               maxHeight: .infinity)
+        .background(.appBackground)
+        .tint(.white)
     }
     
     // MARK: - ViewBuilder
@@ -34,6 +38,7 @@ struct ContentView: View {
                 .lowercaseSmallCaps()
                 .bold()
                 .monospaced())
+            .foregroundStyle(.white)
     }
     
     private var diceHStack: some View {

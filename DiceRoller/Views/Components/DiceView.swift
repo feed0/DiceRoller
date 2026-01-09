@@ -29,11 +29,12 @@ struct DiceView: View {
     // MARK: - ViewBuilder
     
     private var dieImage: some View {
-        Image(systemName: "die.face.\(numberOfPips)")
+        Image(systemName: "die.face.\(numberOfPips).fill")
             .resizable()
             .frame(maxWidth: maxSideSize,
                    maxHeight: maxSideSize)
             .aspectRatio(1, contentMode: .fit)
+            .foregroundStyle(.black, .white)
     }
     
     private var rollTheDieButton: some View {
@@ -43,6 +44,7 @@ struct DiceView: View {
             }
         }
         .buttonStyle(.bordered)
+        .font(.title2)
     }
 }
 
