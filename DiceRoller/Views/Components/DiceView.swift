@@ -11,6 +11,7 @@ struct DiceView: View {
     
     // MARK: - Properties
     
+    // MARK: Parameters
     @State private var numberOfPips = 1
     
     // MARK: Constants
@@ -20,10 +21,7 @@ struct DiceView: View {
     // MARK: - Body
     
     public var body: some View {
-        VStack {
-            dieImage
-            rollTheDieButton
-        }
+        dieImage
     }
     
     // MARK: - ViewBuilder
@@ -35,16 +33,13 @@ struct DiceView: View {
                    maxHeight: maxSideSize)
             .aspectRatio(1, contentMode: .fit)
             .foregroundStyle(.black, .white)
-    }
-    
-    private var rollTheDieButton: some View {
-        Button("Roll") {
-            withAnimation {
-                numberOfPips = Int.random(in: rangeOfPips)
+        
+            /// On tap
+            .onTapGesture {
+                withAnimation {
+                    numberOfPips = Int.random(in: rangeOfPips)
+                }
             }
-        }
-        .buttonStyle(.bordered)
-        .font(.title2)
     }
 }
 
