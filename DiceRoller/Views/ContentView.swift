@@ -67,6 +67,7 @@ struct ContentView: View {
             }
         }
         .disabled(diceCount == 1)
+        .symbolRenderingMode(.hierarchical)
     }
     
     private var addDieButton: some View {
